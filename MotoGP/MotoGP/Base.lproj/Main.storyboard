@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Lista de Escuderias-->
@@ -14,13 +15,55 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="celdaDeEscuderia" rowHeight="100" id="aAf-e4-aIj">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="celdaDeEscuderia" rowHeight="100" id="aAf-e4-aIj" customClass="EcuderiaTableViewCell" customModule="MotoGP" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="92" width="600" height="100"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="aAf-e4-aIj" id="yXG-NI-ay8">
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="99"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Oe5-dX-fvx">
+                                            <rect key="frame" x="-42" y="-21" width="42" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                            <variation key="widthClass=compact" misplaced="YES">
+                                                <rect key="frame" x="8" y="35" width="384" height="29"/>
+                                            </variation>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="trailingMargin" secondItem="Oe5-dX-fvx" secondAttribute="trailing" id="GRh-mb-pSK"/>
+                                        <constraint firstItem="Oe5-dX-fvx" firstAttribute="top" secondItem="yXG-NI-ay8" secondAttribute="topMargin" id="MLr-fX-4xO"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="Oe5-dX-fvx" secondAttribute="bottom" id="s6s-QP-Gfc"/>
+                                        <constraint firstItem="Oe5-dX-fvx" firstAttribute="leading" secondItem="yXG-NI-ay8" secondAttribute="leadingMargin" id="z0u-f3-YcJ"/>
+                                    </constraints>
+                                    <variation key="default">
+                                        <mask key="subviews">
+                                            <exclude reference="Oe5-dX-fvx"/>
+                                        </mask>
+                                        <mask key="constraints">
+                                            <exclude reference="GRh-mb-pSK"/>
+                                            <exclude reference="MLr-fX-4xO"/>
+                                            <exclude reference="s6s-QP-Gfc"/>
+                                            <exclude reference="z0u-f3-YcJ"/>
+                                        </mask>
+                                    </variation>
+                                    <variation key="widthClass=compact">
+                                        <mask key="subviews">
+                                            <include reference="Oe5-dX-fvx"/>
+                                        </mask>
+                                        <mask key="constraints">
+                                            <include reference="GRh-mb-pSK"/>
+                                            <include reference="MLr-fX-4xO"/>
+                                            <include reference="s6s-QP-Gfc"/>
+                                            <include reference="z0u-f3-YcJ"/>
+                                        </mask>
+                                    </variation>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="etiquetaNombreEscuderia" destination="Oe5-dX-fvx" id="kxw-gC-sa7"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -28,75 +71,11 @@
                             <outlet property="delegate" destination="YVB-PO-8mw" id="MNC-8a-stx"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Lista de Escuderias" id="1bo-bF-hUx">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="hcV-ZT-Px1">
-                            <connections>
-                                <action selector="nuevaEscuderia:" destination="YVB-PO-8mw" id="Xhv-S7-Lob"/>
-                                <segue destination="OEk-37-R2J" kind="presentation" id="4pS-y7-3w3"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="Lista de Escuderias" id="1bo-bF-hUx"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="A1z-6O-6gG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="192" y="373"/>
-        </scene>
-        <!--Nueva Escuderia-->
-        <scene sceneID="tne-QT-ifu">
-            <objects>
-                <viewController id="BYZ-38-t0r" customClass="EscuderiaViewController" customModule="MotoGP" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
-                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Go8-4r-CDq">
-                                <rect key="frame" x="-25" y="-30" width="97" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                                <variation key="widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="20" y="117" width="170" height="30"/>
-                                </variation>
-                            </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Introduzca nombre de escuderia" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wW9-qC-8Y5">
-                                <rect key="frame" x="-42" y="-21" width="42" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                                <variation key="widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="20" y="88" width="250" height="21"/>
-                                </variation>
-                            </label>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                        <variation key="default">
-                            <mask key="subviews">
-                                <exclude reference="Go8-4r-CDq"/>
-                                <exclude reference="wW9-qC-8Y5"/>
-                            </mask>
-                        </variation>
-                        <variation key="widthClass=compact">
-                            <mask key="subviews">
-                                <include reference="Go8-4r-CDq"/>
-                                <include reference="wW9-qC-8Y5"/>
-                            </mask>
-                        </variation>
-                    </view>
-                    <navigationItem key="navigationItem" title="Nueva Escuderia" id="hXa-5o-eaM">
-                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="qrQ-qP-oTn">
-                            <connections>
-                                <action selector="cancelar:" destination="BYZ-38-t0r" id="ylw-xh-1Lw"/>
-                            </connections>
-                        </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="baW-IU-JFE"/>
-                    </navigationItem>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1797" y="373"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="hFI-yn-m6y">
@@ -115,24 +94,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WBw-Im-g7n" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-595.5" y="373"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="OD6-aQ-jef">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="OEk-37-R2J" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Z7I-pR-fhL">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="UD3-wD-O24"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="QIV-VE-QyZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="979.5" y="373"/>
         </scene>
     </scenes>
 </document>

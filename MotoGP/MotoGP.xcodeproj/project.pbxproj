@@ -14,6 +14,7 @@
 		0D3CCEB41FC59A9600C61791 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0D3CCEB31FC59A9600C61791 /* Assets.xcassets */; };
 		0D3CCEB71FC59A9600C61791 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0D3CCEB51FC59A9600C61791 /* LaunchScreen.storyboard */; };
 		0D3CCEBF1FC59F0400C61791 /* EscuderiaTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D3CCEBE1FC59F0400C61791 /* EscuderiaTableViewController.swift */; };
+		0D3CCEC11FC5E49200C61791 /* EcuderiaTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D3CCEC01FC5E49200C61791 /* EcuderiaTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		0D3CCEB61FC59A9600C61791 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0D3CCEB81FC59A9600C61791 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0D3CCEBE1FC59F0400C61791 /* EscuderiaTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EscuderiaTableViewController.swift; sourceTree = "<group>"; };
+		0D3CCEC01FC5E49200C61791 /* EcuderiaTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EcuderiaTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,6 +66,7 @@
 				0D3CCEB81FC59A9600C61791 /* Info.plist */,
 				0D3CCEB01FC59A9600C61791 /* MotoGP.xcdatamodeld */,
 				0D3CCEAD1FC59A9500C61791 /* Main.storyboard */,
+				0D3CCEC01FC5E49200C61791 /* EcuderiaTableViewCell.swift */,
 				0D3CCEBE1FC59F0400C61791 /* EscuderiaTableViewController.swift */,
 				0D3CCEAB1FC59A9500C61791 /* EscuderiaViewController.swift */,
 			);
@@ -145,6 +148,7 @@
 				0D3CCEBF1FC59F0400C61791 /* EscuderiaTableViewController.swift in Sources */,
 				0D3CCEB21FC59A9600C61791 /* MotoGP.xcdatamodeld in Sources */,
 				0D3CCEAA1FC59A9500C61791 /* AppDelegate.swift in Sources */,
+				0D3CCEC11FC5E49200C61791 /* EcuderiaTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
