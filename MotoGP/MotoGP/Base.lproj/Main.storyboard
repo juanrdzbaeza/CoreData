@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -10,16 +11,16 @@
         <scene sceneID="Xw7-04-XnZ">
             <objects>
                 <tableViewController id="YVB-PO-8mw" customClass="EscuderiaTableViewController" customModule="MotoGP" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="100" sectionHeaderHeight="28" sectionFooterHeight="28" id="n3n-cA-z9X">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="50" sectionHeaderHeight="28" sectionFooterHeight="28" id="n3n-cA-z9X">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="celdaDeEscuderia" rowHeight="100" id="aAf-e4-aIj" customClass="EcuderiaTableViewCell" customModule="MotoGP" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="92" width="600" height="100"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="celdaDeEscuderia" rowHeight="50" id="aAf-e4-aIj" customClass="EcuderiaTableViewCell" customModule="MotoGP" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="92" width="600" height="50"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="aAf-e4-aIj" id="yXG-NI-ay8">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="99"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="49"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Oe5-dX-fvx">
@@ -27,9 +28,6 @@
                                             <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <nil key="highlightedColor"/>
-                                            <variation key="widthClass=compact" misplaced="YES">
-                                                <rect key="frame" x="8" y="35" width="384" height="29"/>
-                                            </variation>
                                         </label>
                                     </subviews>
                                     <constraints>
@@ -63,6 +61,7 @@
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="etiquetaNombreEscuderia" destination="Oe5-dX-fvx" id="kxw-gC-sa7"/>
+                                    <segue destination="yfU-m7-DJb" kind="presentation" id="emv-pM-I7w"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -75,7 +74,84 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="A1z-6O-6gG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="192" y="373"/>
+            <point key="canvasLocation" x="141" y="325"/>
+        </scene>
+        <!--Lista de Pilotos-->
+        <scene sceneID="G87-gT-X6g">
+            <objects>
+                <tableViewController id="23e-Co-JaG" customClass="PilotoTableViewController" customModule="MotoGP" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="50" sectionHeaderHeight="28" sectionFooterHeight="28" id="cHc-5I-xG9">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="celdaDePiloto" rowHeight="50" id="ExW-z1-iqs" customClass="PilotoTableViewCell" customModule="MotoGP" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="92" width="600" height="50"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ExW-z1-iqs" id="nnh-Tt-1cZ">
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="49"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y5F-0C-KTc">
+                                            <rect key="frame" x="-42" y="-21" width="42" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                            <variation key="widthClass=compact" misplaced="YES">
+                                                <rect key="frame" x="8" y="8" width="384" height="30"/>
+                                            </variation>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="bottomMargin" secondItem="y5F-0C-KTc" secondAttribute="bottom" id="NuD-lj-dIf"/>
+                                        <constraint firstItem="y5F-0C-KTc" firstAttribute="trailing" secondItem="nnh-Tt-1cZ" secondAttribute="trailingMargin" id="sSS-i7-lel"/>
+                                        <constraint firstItem="y5F-0C-KTc" firstAttribute="leading" secondItem="nnh-Tt-1cZ" secondAttribute="leadingMargin" id="tHk-TZ-tHc"/>
+                                        <constraint firstItem="y5F-0C-KTc" firstAttribute="top" secondItem="nnh-Tt-1cZ" secondAttribute="topMargin" id="uMV-18-2JO"/>
+                                    </constraints>
+                                    <variation key="default">
+                                        <mask key="subviews">
+                                            <exclude reference="y5F-0C-KTc"/>
+                                        </mask>
+                                        <mask key="constraints">
+                                            <exclude reference="NuD-lj-dIf"/>
+                                            <exclude reference="sSS-i7-lel"/>
+                                            <exclude reference="tHk-TZ-tHc"/>
+                                            <exclude reference="uMV-18-2JO"/>
+                                        </mask>
+                                    </variation>
+                                    <variation key="widthClass=compact">
+                                        <mask key="subviews">
+                                            <include reference="y5F-0C-KTc"/>
+                                        </mask>
+                                        <mask key="constraints">
+                                            <include reference="NuD-lj-dIf"/>
+                                            <include reference="sSS-i7-lel"/>
+                                            <include reference="tHk-TZ-tHc"/>
+                                            <include reference="uMV-18-2JO"/>
+                                        </mask>
+                                    </variation>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="etiquetaNombrePiloto" destination="y5F-0C-KTc" id="Zur-LD-y2J"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="23e-Co-JaG" id="yEA-21-Kyq"/>
+                            <outlet property="delegate" destination="23e-Co-JaG" id="6qe-AO-4ov"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Lista de Pilotos" id="M75-EI-d0V">
+                        <barButtonItem key="leftBarButtonItem" title="Atras" id="gob-b5-mO6">
+                            <connections>
+                                <action selector="atras:" destination="23e-Co-JaG" id="lRE-K2-Fxi"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="X4t-N7-06n" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="141" y="1077"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="hFI-yn-m6y">
@@ -93,7 +169,25 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WBw-Im-g7n" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-595.5" y="373"/>
+            <point key="canvasLocation" x="-646.5" y="325"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="RQh-i0-mNn">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="yfU-m7-DJb" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="QJn-Dq-HiM">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="23e-Co-JaG" kind="relationship" relationship="rootViewController" id="swB-l1-6SM"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="JDb-Fs-Ltg" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-646.5" y="1077"/>
         </scene>
     </scenes>
 </document>

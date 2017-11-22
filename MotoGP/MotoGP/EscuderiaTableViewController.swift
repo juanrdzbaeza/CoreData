@@ -30,7 +30,7 @@ class EscuderiaTableViewController: UITableViewController {
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(
             barButtonSystemItem: UIBarButtonSystemItem.Add, target: self, action: #selector(EscuderiaTableViewController.nuevaEscuderia)
         )
-    }
+    }//  fin de viewDidLoad(_:)
     /*
      * Esta funcion se encarga de crear la ventana emergente que nos permite introducir un nombre a
      * traves de un campo de texto.

@@ -3,7 +3,11 @@
     <entity name="Escuderia" syncable="YES">
         <attribute name="nombre" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
+    <entity name="Piloto" syncable="YES">
+        <attribute name="nombre" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
     <elements>
         <element name="Escuderia" positionX="-45" positionY="0" width="128" height="60"/>
+        <element name="Piloto" positionX="-18" positionY="36" width="128" height="60"/>
     </elements>
 </model>
