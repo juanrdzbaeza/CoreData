@@ -15,9 +15,6 @@ class PilotoTableViewController: UITableViewController {
     
     var listaPilotos = [Piloto]()
     
-    //MARK: Actions
-
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,10 +33,7 @@ class PilotoTableViewController: UITableViewController {
         let confirmAction           = UIAlertAction(title: "Aceptar", style: UIAlertActionStyle.Default, handler: ({
             (_) in
             /*
-             * dentro de la accion para confirmar esta contenida la llamada a la funcion que guarda
-             * la información en la base de datos, guardarEscuderia(_:), a la cual le pasamos como
-             * parametro lo que haya escrito en el campo de texto campoTexto, despues recargamos
-             * la vista de la tabla.
+             *
              */
             if let campoTexto = nuevoPilotoPopView.textFields![0] as? UITextField{
                 self.guardarPiloto(campoTexto.text!)
@@ -58,6 +52,9 @@ class PilotoTableViewController: UITableViewController {
     }// fin de la funcion nuevoPiloto(_:)
     
     /*
+     * La unica diferencia de esta funcion con la de guardarEscuderia(_:) es que al asignar el 
+     * nombre pasado por parametro al nuevo piloto, justo despues le asignamos su escuderia,
+     * que es la que hemos enviado a traves del segue desde EscuderiaTableViewController
      *
      */
     func guardarPiloto(nuevoPiloto: String) {
@@ -78,7 +75,10 @@ class PilotoTableViewController: UITableViewController {
     }// fin de la funcion guardarPiloto(_:)
     
     /*
-     *
+     * En esta funcion se recogen los pilotos de a base de datos, pero a diferencia de 
+     * lo que hacemos en EscuderiaTableViewController.viewWillAppear(_:), la listaPilotos
+     * la llenamos solo con los pilotos cuya escuderia coincida con la de la variable global,
+     * puesto que son esos los que queremos mostrar.
      */
     override func viewWillAppear(animated: Bool) {
         let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate

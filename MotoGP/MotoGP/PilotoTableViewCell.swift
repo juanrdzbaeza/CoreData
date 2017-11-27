@@ -10,7 +10,7 @@ import UIKit
 
 class PilotoTableViewCell: UITableViewCell {
 
-    
+    // conexion con la etiqueta en las celdas de los pilotos
     @IBOutlet weak var etiquetaNombrePiloto: UILabel!
     
     override func awakeFromNib() {

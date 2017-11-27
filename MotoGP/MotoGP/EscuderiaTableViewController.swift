@@ -67,7 +67,14 @@ class EscuderiaTableViewController: UITableViewController {
     
     /*
      * La función guardarEscuderia(_:) recibe el nombre del equipo como parametro String.
-     *
+     * Creamos una entidad del tipo que necesitamos, en este caso Escuderia, y un objeto del
+     * mismo tipo cuya entidad es la que hemos creado es decir, tendremos un objeto Escuderia,
+     * cuya entidad (tabla de la base de datos) es Escuderia.
+     * Le asignamos el nombre que recibe por parametro en la "clave" (atributo) nombre de la
+     * "entidad" (tabla).
+     * Despues grabamos la informacion en CoreData a traves de la funcion .save(), como se trata
+     * de un try recogemos el posible error en el catch.
+     * y añadimos la nueva escuderia recien creada a la listaEscuderias.
      *
      */
     func guardarEscuderia(nuevaEscuderia: String) {
@@ -146,6 +153,7 @@ class EscuderiaTableViewController: UITableViewController {
         let celdaRef            = sender as! EcuderiaTableViewCell
         let destino             = segue.destinationViewController as! PilotoTableViewController
         let filaSeleccionda     = tableView.indexPathForCell(celdaRef)
+        // la variable de destino "escuderia" sera la fila seleccionada
         destino.escuderia       = listaEscuderias[(filaSeleccionda?.row)!]
     }
  

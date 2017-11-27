@@ -11,6 +11,7 @@ import UIKit
 class EcuderiaTableViewCell: UITableViewCell {
     
 
+    // conexion con la etiqueta en las celdas de las escuderias
     @IBOutlet weak var etiquetaNombreEscuderia: UILabel!
 
     
