@@ -61,7 +61,7 @@
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="etiquetaNombreEscuderia" destination="Oe5-dX-fvx" id="kxw-gC-sa7"/>
-                                    <segue destination="yfU-m7-DJb" kind="presentation" id="emv-pM-I7w"/>
+                                    <segue destination="23e-Co-JaG" kind="show" identifier="DetalleEscuderia" id="Rpg-Uu-T8N"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -97,9 +97,6 @@
                                             <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <nil key="highlightedColor"/>
-                                            <variation key="widthClass=compact" misplaced="YES">
-                                                <rect key="frame" x="8" y="8" width="384" height="30"/>
-                                            </variation>
                                         </label>
                                     </subviews>
                                     <constraints>
@@ -132,7 +129,7 @@
                                     </variation>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <outlet property="etiquetaNombrePiloto" destination="y5F-0C-KTc" id="Zur-LD-y2J"/>
+                                    <outlet property="etiquetaNombrePiloto" destination="y5F-0C-KTc" id="qJF-yd-FED"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -141,17 +138,11 @@
                             <outlet property="delegate" destination="23e-Co-JaG" id="6qe-AO-4ov"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Lista de Pilotos" id="M75-EI-d0V">
-                        <barButtonItem key="leftBarButtonItem" title="Atras" id="gob-b5-mO6">
-                            <connections>
-                                <action selector="atras:" destination="23e-Co-JaG" id="lRE-K2-Fxi"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="Lista de Pilotos" id="M75-EI-d0V"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="X4t-N7-06n" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="141" y="1077"/>
+            <point key="canvasLocation" x="141" y="1161"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="hFI-yn-m6y">
@@ -187,7 +178,10 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JDb-Fs-Ltg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-646.5" y="1077"/>
+            <point key="canvasLocation" x="-646.5" y="1161"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="Rpg-Uu-T8N"/>
+    </inferredMetricsTieBreakers>
 </document>

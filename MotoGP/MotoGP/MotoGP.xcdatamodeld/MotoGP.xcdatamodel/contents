@@ -1,13 +1,15 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="10174" systemVersion="15G17023" minimumToolsVersion="Automatic">
-    <entity name="Escuderia" syncable="YES">
+    <entity name="Escuderia" representedClassName=".Escuderia" syncable="YES">
         <attribute name="nombre" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="pilotos" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Piloto" inverseName="escuderia" inverseEntity="Piloto" syncable="YES"/>
     </entity>
-    <entity name="Piloto" syncable="YES">
+    <entity name="Piloto" representedClassName=".Piloto" syncable="YES">
         <attribute name="nombre" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="escuderia" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Escuderia" inverseName="pilotos" inverseEntity="Escuderia" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Escuderia" positionX="-45" positionY="0" width="128" height="60"/>
-        <element name="Piloto" positionX="-18" positionY="36" width="128" height="60"/>
+        <element name="Escuderia" positionX="-207" positionY="-3" width="128" height="73"/>
+        <element name="Piloto" positionX="-18" positionY="36" width="128" height="73"/>
     </elements>
 </model>

@@ -12,7 +12,7 @@ import CoreData
 class EscuderiaTableViewController: UITableViewController {
 
     
-    var listaEscuderias = [NSManagedObject]()    
+    var listaEscuderias = [Escuderia]()
     
     
     override func viewDidLoad() {
@@ -74,7 +74,7 @@ class EscuderiaTableViewController: UITableViewController {
         let appDelegate         = UIApplication.sharedApplication().delegate as! AppDelegate
         let managedContext      = appDelegate.managedObjectContext
         let entidadEscuderias   = NSEntityDescription.entityForName("Escuderia", inManagedObjectContext: managedContext)
-        let escuderia           = NSManagedObject(entity: entidadEscuderias!, insertIntoManagedObjectContext: managedContext)
+        let escuderia           = Escuderia(entity: entidadEscuderias!, insertIntoManagedObjectContext: managedContext)
         escuderia.setValue(nuevaEscuderia, forKey: "nombre")
         do{
             try managedContext.save()
@@ -97,7 +97,7 @@ class EscuderiaTableViewController: UITableViewController {
         let fetchRequest = NSFetchRequest(entityName: "Escuderia")
         do{
             let results = try managedContext.executeFetchRequest(fetchRequest)
-            listaEscuderias = results as! [NSManagedObject]
+            listaEscuderias = results as! [Escuderia]
         }
         catch{
             print("error al cargar escuderias de la base de datos")
@@ -138,5 +138,54 @@ class EscuderiaTableViewController: UITableViewController {
         managedContext.deleteObject(listaEscuderias[indexPath.row])
         listaEscuderias.removeAtIndex(indexPath.row)
         tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Right)
+    }// fin de Table view data source
+    
+    //MARK: Navigation
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier != "DetalleEscuderia" {return}
+        let celdaRef            = sender as! EcuderiaTableViewCell
+        let destino             = segue.destinationViewController as! PilotoTableViewController
+        let filaSeleccionda     = tableView.indexPathForCell(celdaRef)
+        destino.escuderia       = listaEscuderias[(filaSeleccionda?.row)!]
     }
+ 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

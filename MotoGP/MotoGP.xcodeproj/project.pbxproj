@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0D3C4BE51FC845B800475DA1 /* Escuderia+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D3C4BE11FC845B800475DA1 /* Escuderia+CoreDataProperties.swift */; };
+		0D3C4BE61FC845B800475DA1 /* Escuderia.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D3C4BE21FC845B800475DA1 /* Escuderia.swift */; };
+		0D3C4BE71FC845B800475DA1 /* Piloto+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D3C4BE31FC845B800475DA1 /* Piloto+CoreDataProperties.swift */; };
+		0D3C4BE81FC845B800475DA1 /* Piloto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D3C4BE41FC845B800475DA1 /* Piloto.swift */; };
 		0D3CCEAA1FC59A9500C61791 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D3CCEA91FC59A9500C61791 /* AppDelegate.swift */; };
 		0D3CCEAF1FC59A9500C61791 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0D3CCEAD1FC59A9500C61791 /* Main.storyboard */; };
 		0D3CCEB21FC59A9600C61791 /* MotoGP.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 0D3CCEB01FC59A9600C61791 /* MotoGP.xcdatamodeld */; };
@@ -19,6 +23,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0D3C4BE11FC845B800475DA1 /* Escuderia+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Escuderia+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		0D3C4BE21FC845B800475DA1 /* Escuderia.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Escuderia.swift; sourceTree = "<group>"; };
+		0D3C4BE31FC845B800475DA1 /* Piloto+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Piloto+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		0D3C4BE41FC845B800475DA1 /* Piloto.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Piloto.swift; sourceTree = "<group>"; };
 		0D3CCEA61FC59A9500C61791 /* MotoGP.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MotoGP.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0D3CCEA91FC59A9500C61791 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0D3CCEAE1FC59A9500C61791 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -62,6 +70,10 @@
 		0D3CCEA81FC59A9500C61791 /* MotoGP */ = {
 			isa = PBXGroup;
 			children = (
+				0D3C4BE11FC845B800475DA1 /* Escuderia+CoreDataProperties.swift */,
+				0D3C4BE21FC845B800475DA1 /* Escuderia.swift */,
+				0D3C4BE31FC845B800475DA1 /* Piloto+CoreDataProperties.swift */,
+				0D3C4BE41FC845B800475DA1 /* Piloto.swift */,
 				0D3CCEA91FC59A9500C61791 /* AppDelegate.swift */,
 				0D3CCEB31FC59A9600C61791 /* Assets.xcassets */,
 				0D3CCEB51FC59A9600C61791 /* LaunchScreen.storyboard */,
@@ -148,10 +160,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				0D3CCEC51FC5F59500C61791 /* PilotoTableViewCell.swift in Sources */,
+				0D3C4BE51FC845B800475DA1 /* Escuderia+CoreDataProperties.swift in Sources */,
+				0D3C4BE71FC845B800475DA1 /* Piloto+CoreDataProperties.swift in Sources */,
 				0D3CCEBF1FC59F0400C61791 /* EscuderiaTableViewController.swift in Sources */,
+				0D3C4BE61FC845B800475DA1 /* Escuderia.swift in Sources */,
 				0D3CCEC31FC5EE5200C61791 /* PilotoTableViewController.swift in Sources */,
 				0D3CCEB21FC59A9600C61791 /* MotoGP.xcdatamodeld in Sources */,
 				0D3CCEAA1FC59A9500C61791 /* AppDelegate.swift in Sources */,
+				0D3C4BE81FC845B800475DA1 /* Piloto.swift in Sources */,
 				0D3CCEC11FC5E49200C61791 /* EcuderiaTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

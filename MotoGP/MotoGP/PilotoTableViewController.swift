@@ -11,12 +11,12 @@ import CoreData
 
 class PilotoTableViewController: UITableViewController {
     
-    var listaPilotos = [NSManagedObject]()
+    var escuderia: Escuderia?
+    
+    var listaPilotos = [Piloto]()
     
     //MARK: Actions
-    @IBAction func atras(sender: AnyObject) {
-        dismissViewControllerAnimated(true, completion: nil)
-    }
+
     
     
     override func viewDidLoad() {
@@ -64,8 +64,10 @@ class PilotoTableViewController: UITableViewController {
         let appDelegate         = UIApplication.sharedApplication().delegate as! AppDelegate
         let managedContext      = appDelegate.managedObjectContext
         let entidadPilotos      = NSEntityDescription.entityForName("Piloto", inManagedObjectContext: managedContext)
-        let piloto              = NSManagedObject(entity: entidadPilotos!, insertIntoManagedObjectContext: managedContext)
+        let piloto              = Piloto(entity: entidadPilotos!, insertIntoManagedObjectContext: managedContext)
         piloto.setValue(nuevoPiloto, forKey: "nombre")
+        // asignamos la escuderia al piloto
+        piloto.escuderia = self.escuderia
         do{
             try managedContext.save()
             listaPilotos.append(piloto)
@@ -84,7 +86,11 @@ class PilotoTableViewController: UITableViewController {
         let fetchRequest = NSFetchRequest(entityName: "Piloto")
         do{
             let results = try managedContext.executeFetchRequest(fetchRequest)
-            listaPilotos = results as! [NSManagedObject]
+            for p in results {
+                if (p.escuderia === self.escuderia){
+                    listaPilotos.append(p as! Piloto)
+                }
+            }
         }
         catch{
             print("error al cargar pilotos de la base de datos")
@@ -108,9 +114,9 @@ class PilotoTableViewController: UITableViewController {
      *
      */
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell                            = tableView.dequeueReusableCellWithIdentifier("celdaDePiloto") as! PilotoTableViewCell
-        let escuderia                       = listaPilotos[indexPath.row]
-        cell.etiquetaNombrePiloto.text      = escuderia.valueForKey("nombre") as! String
+        let cell = tableView.dequeueReusableCellWithIdentifier("celdaDePiloto") as! PilotoTableViewCell
+        let piloto = listaPilotos[indexPath.row]
+        cell.etiquetaNombrePiloto.text = piloto.valueForKey("nombre") as! String
         return cell
     }
     
