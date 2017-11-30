@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  PilotoTableViewController.swift
 //  MotoGP
 //
 //  Created by Juan Rodríguez Baeza on 22/11/17.
@@ -15,12 +15,11 @@ class PilotoTableViewController: UITableViewController {
     
     var listaPilotos = [Piloto]()
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(
-            barButtonSystemItem: UIBarButtonSystemItem.Add, target: self, action: #selector(PilotoTableViewController.nuevoPiloto)
+            barButtonSystemItem: UIBarButtonSystemItem.Add, target: self, action: #selector(self.nuevoPiloto)
         )
 
     }// fin de viewDidLoad(_:)
@@ -116,7 +115,7 @@ class PilotoTableViewController: UITableViewController {
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("celdaDePiloto") as! PilotoTableViewCell
         let piloto = listaPilotos[indexPath.row]
-        cell.etiquetaNombrePiloto.text = piloto.valueForKey("nombre") as! String
+        cell.etiquetaNombrePiloto.text = (piloto.valueForKey("nombre") as! String)
         return cell
     }
     

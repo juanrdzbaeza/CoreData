@@ -11,16 +11,16 @@ import CoreData
 
 class EscuderiaTableViewController: UITableViewController {
 
-    
+    let appDelegate         = UIApplication.sharedApplication().delegate as! AppDelegate
+    var managedContext: NSManagedObjectContext?
     var listaEscuderias = [Escuderia]()
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // boton izquierdo de la barra de navegacion para entrar en modo de edicion de tabla
         navigationItem.leftBarButtonItem = editButtonItem()
         /*
-         * Añadimos programáticamente un boton para que nos va a permitir abrir una ventana emergente
+         * Añadimos programáticamente un boton que nos va a permitir abrir una ventana emergente
          * que contendrá un campo de texto donde poder escribir el nombre del objeto, y dos botones
          * uno para cancelar la accion y otro para llevarla a cabo. en el atributo "action" le decimos
          * donde comienza la accion programada para guardar el objeto nuevaEscuderia(_:)
@@ -28,16 +28,16 @@ class EscuderiaTableViewController: UITableViewController {
          *      action: #selector(EscuderiaTableViewController.nuevaEscuderia)
          */
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(
-            barButtonSystemItem: UIBarButtonSystemItem.Add, target: self, action: #selector(EscuderiaTableViewController.nuevaEscuderia)
+            barButtonSystemItem: UIBarButtonSystemItem.Add, target: self, action: #selector(self.nuevaEscuderia)
         )
     }//  fin de viewDidLoad(_:)
+    
     /*
      * Esta funcion se encarga de crear la ventana emergente que nos permite introducir un nombre a
      * traves de un campo de texto.
      * - nuevaEscuderiaPopView es la propia ventana declarada como un UIAlertController.
      * - confirmAction es la accion para confirmar la acción que se desea realizar.
      * - cancelAction es la accion para cancelar la acción.
-     *
      */
     func nuevaEscuderia(){
         let nuevaEscuderiaPopView   = UIAlertController(title: "ESCUDERIAS", message: "dale un nombre al nuevo equipo", preferredStyle: .Alert)
@@ -75,7 +75,6 @@ class EscuderiaTableViewController: UITableViewController {
      * Despues grabamos la informacion en CoreData a traves de la funcion .save(), como se trata
      * de un try recogemos el posible error en el catch.
      * y añadimos la nueva escuderia recien creada a la listaEscuderias.
-     *
      */
     func guardarEscuderia(nuevaEscuderia: String) {
         let appDelegate         = UIApplication.sharedApplication().delegate as! AppDelegate
@@ -93,7 +92,7 @@ class EscuderiaTableViewController: UITableViewController {
     }// fin de la funcion guardarEscuderia(_:)
     
     /*
-     * La función viewWillAppear(_:) es ejecutada al aparecer la vista, por lo que es perfecta
+     * La función viewWillAppear(_:) notifica al controlador que la vista sera añadida, por lo que es perfecta
      * para asignarle la funcion de consultar la base de datos y extraer la información necesaria
      * después la almacena en el array de clase listaEscuderias[], este array será luego consultado
      * y llenara la tabla listando la información que contenga.
@@ -130,7 +129,7 @@ class EscuderiaTableViewController: UITableViewController {
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell                            = tableView.dequeueReusableCellWithIdentifier("celdaDeEscuderia") as! EcuderiaTableViewCell
         let escuderia                       = listaEscuderias[indexPath.row]
-        cell.etiquetaNombreEscuderia.text   = escuderia.valueForKey("nombre") as! String
+        cell.etiquetaNombreEscuderia.text   = (escuderia.valueForKey("nombre") as! String)
         return cell
     }
     /*
@@ -139,12 +138,12 @@ class EscuderiaTableViewController: UITableViewController {
      * la accion de borrado de la base de datos
      */
     override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
-        if editingStyle != .Delete { return }
-        let appDelegate         = UIApplication.sharedApplication().delegate as! AppDelegate
-        let managedContext      = appDelegate.managedObjectContext
-        managedContext.deleteObject(listaEscuderias[indexPath.row])
-        listaEscuderias.removeAtIndex(indexPath.row)
-        tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Right)
+            if editingStyle != .Delete { return }
+            let appDelegate         = UIApplication.sharedApplication().delegate as! AppDelegate
+            let managedContext      = appDelegate.managedObjectContext
+            managedContext.deleteObject(listaEscuderias[indexPath.row])
+            listaEscuderias.removeAtIndex(indexPath.row)
+            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Right)
     }// fin de Table view data source
     
     //MARK: Navigation
@@ -156,44 +155,5 @@ class EscuderiaTableViewController: UITableViewController {
         // la variable de destino "escuderia" sera la fila seleccionada
         destino.escuderia       = listaEscuderias[(filaSeleccionda?.row)!]
     }
- 
+    
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
